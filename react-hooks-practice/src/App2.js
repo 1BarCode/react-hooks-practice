@@ -4,7 +4,9 @@ function App2() {
     const [resourceType, setResourceType] = useState('posts')
 
     useEffect(() => {
-        console.log('render')
+        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+            .then(response => response.json())
+            .then(json => console.log(json))
     }, [resourceType])
 
     return (
